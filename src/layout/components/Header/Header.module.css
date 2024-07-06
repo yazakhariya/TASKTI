@@ -1,11 +1,13 @@
 .logo {
   cursor: pointer;
-  background-color: #484283;
 }
 
 .navigationWrapper {
   background-color: #484283;
   padding: 23px 130px 0px 130px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .content {
@@ -31,4 +33,3 @@
   display: flex;
   gap: 4px;
 }
-
