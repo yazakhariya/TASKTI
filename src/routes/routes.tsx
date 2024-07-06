@@ -3,21 +3,32 @@ import CartPage from 'src/pages/Cart/CartPage'
 import CatalogPage from 'src/pages/Catalog/CatalogPage'
 import NotFound from 'src/pages/NotFound/NotFound'
 import ProductPage from 'src/pages/ProductPage/ProductPage'
+import { RouterPath } from './enums'
+import Layout from 'src/layout/Layout'
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <CatalogPage />,
-    errorElement: <NotFound />
+    path: RouterPath.Catalog,
+    element: <Layout />,
+    children: [
+      {
+        path: RouterPath.Catalog,
+        element: <CatalogPage />,
+      },
+      {
+        path: RouterPath.ProductPage,
+        element: <ProductPage />,
+      },
+      {
+        path: RouterPath.Cart,
+        element: <CartPage />,
+      },
+    ],
   },
   {
-    path: '/product/:id',
-    element: <ProductPage />,
+    path: RouterPath.NotFound,
+    element: <NotFound />,
   },
-  {
-    path: '/cart',
-    element: <CartPage />,
-  }
 ])
 
 export default router

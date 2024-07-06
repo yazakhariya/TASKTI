@@ -1,0 +1,34 @@
+.logo {
+  cursor: pointer;
+  background-color: #484283;
+}
+
+.navigationWrapper {
+  background-color: #484283;
+  padding: 23px 130px 0px 130px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #ffffff solid 1px;
+  padding-bottom: 23px;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  gap: 4px;
+}
+
