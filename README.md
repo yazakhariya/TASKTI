@@ -13,10 +13,11 @@
 
 ```bash
 git clone https://github.com/yazakhariya/TASKTI.git
-```
 
+```
 2. Ввести в консоли команду (type the command):
 
 ```bash
 npm run dev
+
 ```
