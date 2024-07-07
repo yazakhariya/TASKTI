@@ -1,0 +1,77 @@
+.wrapper {
+  margin: 40px 130px 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+  color: #444b58;
+}
+
+.contentBox {
+  display: flex;
+  gap: 30px;
+  width: fit-content;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 40px;
+  border: 1px solid #c4c4c4;
+}
+
+.commonPrice {
+  width: 356px;
+}
+
+.priceBox {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.priceInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total,
+.amount,
+.priceBefore,
+.priceInfoBefore {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #b2b5bb;
+}
+
+.amount {
+  color: #444b58;
+}
+
+.priceBefore {
+  font-weight: 600;
+}
+
+.priceInfoBefore {
+  font-weight: 700;
+  color: #444b58;
+}
+
+.priceAfter,
+.priceInfoAfter {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #b2b5bb;
+}
+
+.priceInfoAfter {
+  font-weight: 700;
+  color: #444b58;
+}

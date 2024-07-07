@@ -17,6 +17,8 @@ export default function Products() {
                   img={productImg}
                   name={item.itemName}
                   price={item.itemPrice}
+                  width={320}
+                  height={250}
                 />
               )
             })

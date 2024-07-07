@@ -13,7 +13,7 @@
 .content {
   display: flex;
   justify-content: space-between;
-  border-bottom: #ffffff solid 1px;
+  border-bottom: 1px solid #ffffff;
   padding-bottom: 23px;
 }
 

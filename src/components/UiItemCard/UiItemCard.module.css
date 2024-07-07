@@ -1,12 +1,22 @@
+.wrapper {
+  display: flex;
+  gap: 15px;
+}
+
 .productImg {
-  width: 320px;
-  height: 250px;
   border-radius: 4px;
 }
 
 .contentBox {
   display: flex;
   justify-content: space-between;
+}
+
+.cartContentBox,
+.buttonBox {
+  display: flex;
+  gap: 35px;
+  align-items: center;
 }
 
 .textBox {
@@ -18,6 +28,13 @@
   color: #444b58;
   font-weight: 600;
   font-size: 16px;
+  line-height: 20px;
+}
+
+.itemAmount {
+  color: #444b58;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -33,7 +50,33 @@
   height: 50px;
   padding: 16px;
   border-radius: 4px;
-  background-color: #f14f4f;
   align-items: center;
-  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.buttonDelete {
+  color: #b2b5bb;
+  background: transparent;
+  cursor: pointer;
+}
+
+.buttonDelete:hover {
+  background-color: transparent;
+  text-decoration-line: underline;
+  color: #444b58;
+}
+
+.deletedItem {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+}
+
+.deleted {
+  opacity: 0.6;
+}
+
+.deletedButtonState {
+  margin-left: auto;
 }
