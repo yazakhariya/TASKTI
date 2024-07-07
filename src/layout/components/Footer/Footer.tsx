@@ -8,7 +8,13 @@ export default function Footer() {
   const { pathname } = useLocation()
   const isLogoClickable = pathname !== RouterPath.Catalog
   return (
-    <footer className={styles.wrapper}>
+    <footer
+      className={
+        isLogoClickable
+          ? `${styles.wrapper} ${styles.footerFixed}`
+          : styles.wrapper
+      }
+    >
       <div className={styles.content}>
         <img
           className={styles.logo}
