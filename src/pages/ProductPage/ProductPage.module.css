@@ -1,5 +1,5 @@
 .wrapper {
-  margin: 40px 130px 200px;
+  margin: 48px 130px 200px;
   display: flex;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .contentBox {
-  margin-left: 30px;
+  margin-left: 40px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -36,7 +36,7 @@
 .metaSpan {
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   color: #646464;
   margin-left: auto;
 }
@@ -66,6 +66,8 @@
 .other {
   display: flex;
   flex-direction: column;
+  padding-top: 5px;
+  gap: 7px;
 }
 
 .otherInfo {
@@ -76,6 +78,7 @@
 }
 
 .buy {
+  margin-top: 5px;
   padding: 12px;
   border-radius: 6px;
   background: #0000000a;

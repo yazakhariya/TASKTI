@@ -6,6 +6,10 @@
   font-style: normal;
 }
 
+.wrapper {
+  width: fit-content;
+}
+
 button {
   background-color: #f14f4f;
   cursor: pointer;

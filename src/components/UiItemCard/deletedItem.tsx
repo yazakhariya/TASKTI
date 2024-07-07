@@ -17,7 +17,7 @@ export default function DeletedItem({
   height,
 }: Props) {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${styles.cartContentBox}`}>
       <img
         className={`${styles.productImg} ${styles.deleted}`}
         alt={`Изображение товара ${name}`}

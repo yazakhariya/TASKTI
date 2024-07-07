@@ -1,15 +1,15 @@
 .wrapper {
-  padding: 50px 130px;
+  padding: 50px 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 50px;
 }
 
 .contentBox {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 46px;
 }
 
 .heading {
@@ -41,7 +41,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 23px;
 }
 
 .button {

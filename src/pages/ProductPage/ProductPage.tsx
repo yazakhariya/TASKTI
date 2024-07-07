@@ -3,6 +3,7 @@ import imgMain from '../../../public/main photo.png'
 import imgMini from '../../../public/photo.png'
 import { Rating } from 'react-simple-star-rating'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 export default function ProductPage() {
   const [ratingValue, setRatingValue] = useState<number>(0)
@@ -12,6 +13,13 @@ export default function ProductPage() {
 
   return (
     <main className={styles.main}>
+      <Helmet>
+        <title>Essence Mascara Lash Princess | Goods4you</title>
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        />
+      </Helmet>
       <section className={styles.wrapper}>
         <div className={styles.imgBox}>
           <img

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styles from './FaqSection.module.css'
-import buttonIcon from '../../../../../public/$RIWVE4V.svg'
+import buttonIcon from '../../../../../public/plus.svg'
 import { faqMockData } from 'src/mockData/mockData'
 
 export default function FaqSection() {
@@ -26,6 +26,8 @@ export default function FaqSection() {
                   <dt className={styles.question}>
                     <span>{faq.question}</span>
                     <img
+                      width={25}
+                      height={25}
                       onClick={() => toggleFAQ(faq.id)}
                       className={
                         faq.open

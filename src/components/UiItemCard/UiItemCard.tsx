@@ -45,14 +45,21 @@ export default function UiItemCard({
           price={price}
         />
       ) : (
-        <div className={pageType === 'cart' ? `${styles.wrapper}` : undefined}>
-          <img
-            className={styles.productImg}
-            alt={`Изображение товара ${name}`}
-            src={img}
-            width={width}
-            height={height}
-          />
+        <div className={pageType === 'cart' ? `${styles.wrapper} + ${styles.item}` : undefined}>
+          <div className={styles.container}>
+            <img
+              className={styles.productImg}
+              alt={`Изображение товара ${name}`}
+              src={img}
+              width={width}
+              height={height}
+            />
+            {pageType === 'cart' ? null : (
+              <div className={styles.overlay}>
+                <div className={styles.text}>Show details</div>
+              </div>
+            )}
+          </div>
           <div
             className={
               pageType === 'cart'

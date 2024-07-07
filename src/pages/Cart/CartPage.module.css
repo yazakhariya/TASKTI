@@ -1,8 +1,8 @@
 .wrapper {
-  margin: 40px 130px 200px;
+  margin: 48px 130px 150px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 45px;
 }
 
 .heading {
@@ -14,20 +14,21 @@
 
 .contentBox {
   display: flex;
-  gap: 30px;
+  gap: 50px;
   width: fit-content;
 }
 
 .products {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px 40px;
+  padding: 13px 62px 18px 35px;
   border: 1px solid #c4c4c4;
+  border-radius: 4px;
 }
 
 .commonPrice {
   width: 356px;
+  padding-top: 10px;
 }
 
 .priceBox {

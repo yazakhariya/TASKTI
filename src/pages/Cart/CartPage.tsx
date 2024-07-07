@@ -2,10 +2,17 @@ import UiItemCard from 'src/components/UiItemCard/UiItemCard'
 import styles from './CartPage.module.css'
 import { mockData } from 'src/mockData/mockData'
 import productImg from '../../../public/photo.png'
+import { Helmet } from 'react-helmet-async'
 
 export default function CartPage() {
   return (
     <main className={styles.main}>
+      <Helmet>
+        <title>My cart | Goods4you</title>
+        <meta
+          name="description"
+          content="Beginner friendly page for learning React Helmet."
+        /></Helmet>
       <section className={styles.wrapper}>
         <h1 className={styles.heading}>My cart</h1>
         <div className={styles.contentBox}>

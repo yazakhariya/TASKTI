@@ -1,6 +1,6 @@
 .wrapper {
   background-color: #484283;
-  padding: 100px 130px 100px;
+  padding: 116px 130px 138px;
   text-align: center;
 }
 
@@ -8,7 +8,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
   text-align: left;
   z-index: 1;
 }
