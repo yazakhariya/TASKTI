@@ -4,6 +4,7 @@ const productsSlice = createSlice({
   name: 'items',
   initialState: {
     item: [],
+    filtered: [],
   },
   reducers: {
     ItemsReceived(store, action) {

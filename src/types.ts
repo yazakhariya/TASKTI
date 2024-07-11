@@ -1,5 +1,6 @@
 export type Store = {
   item: Items
+  filtered: Items
 }
 
 type Items = {
@@ -12,7 +13,7 @@ type SingleItem = {
   ): import('react').ReactNode
 }
 
-type ItemCriteria = {
+export type ItemCriteria = {
   id: number
   title: string
   thumbnail: string
