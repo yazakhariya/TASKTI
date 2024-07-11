@@ -5,7 +5,7 @@ export const itemsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: '' }),
   endpoints: (builder) => ({
     getItems: builder.query({
-      query: () => ``,
+      query: () => '',
     }),
   }),
 })

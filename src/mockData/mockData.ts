@@ -1,6 +1,7 @@
 type Item = {
   itemName: string
   itemPrice: string
+  id: number
 }
 
 type faqType = {
@@ -14,50 +15,62 @@ export const mockData: Item[] = [
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 1,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 2,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 3,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 4,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 5,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 6,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 7,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 8,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 9,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 10,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 11,
   },
   {
     itemName: 'Essence Mascara Lash Princess',
     itemPrice: '110 $',
+    id: 12,
   },
 ]
 

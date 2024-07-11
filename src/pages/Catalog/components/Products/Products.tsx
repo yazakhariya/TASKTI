@@ -14,6 +14,7 @@ export default function Products() {
             mockData.map((item) => {
               return (
                 <UiItemCard
+                  key={item.id}
                   img={productImg}
                   name={item.itemName}
                   price={item.itemPrice}
