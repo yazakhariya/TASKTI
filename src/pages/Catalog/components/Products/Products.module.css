@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 60px;
 }
 
 .contentBox {
@@ -45,8 +45,6 @@
 }
 
 .button {
-  width: 177px;
-  height: 62px;
   padding: 20px 50px;
   border-radius: 4px;
   font-weight: 400;

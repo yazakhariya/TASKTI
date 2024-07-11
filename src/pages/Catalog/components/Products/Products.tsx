@@ -1,30 +1,38 @@
 import styles from './Products.module.css'
-import { mockData } from 'src/mockData/mockData'
 import UiItemCard from 'src/components/UiItemCard/UiItemCard'
-import productImg from '../../../../../public/image.png'
+import { useSelector } from 'react-redux'
+import { Store } from 'src/types'
+import loader from 'src/assets/loader.svg'
 
 export default function Products() {
+  const items = useSelector((store: Store) => store.item.item)
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.contentBox}>
         <h1 className={styles.heading}>Catalog</h1>
         <input className={styles.input} placeholder="Search by title" />
         <div className={styles.productList}>
-          {mockData ? (
-            mockData.map((item) => {
+          {items ? (
+            items.map((item) => {
               return (
                 <UiItemCard
                   key={item.id}
-                  img={productImg}
-                  name={item.itemName}
-                  price={item.itemPrice}
+                  img={item.thumbnail}
+                  name={item.title}
+                  price={item.price}
                   width={370}
                   height={300}
                 />
               )
             })
           ) : (
-            <span>Not Found</span>
+            <img
+              alt="Идет загрузка контента"
+              width={40}
+              height={40}
+              src={loader}
+            />
           )}
         </div>
       </div>

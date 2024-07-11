@@ -32,7 +32,12 @@ export default function Header({ userName }: Props) {
           </Link>
           <Link to={RouterPath.Cart} className={styles.link}>
             <span>Cart</span>
-            <img alt="Переход по ссылке в корзину" src={cart} />
+            <img
+              className={styles.cartImg}
+              alt="Переход по ссылке в корзину"
+              src={cart}
+            />
+            <div className={styles.counter}>1</div>
           </Link>
           <Link to={'*'} className={styles.link}>
             <span>{userName}</span>

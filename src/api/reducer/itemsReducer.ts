@@ -1,33 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface ItemsState {
-  items: string[]
-  loading: boolean
-  error: null | string
-}
-
-const initialState: ItemsState = {
-  items: [],
-  loading: false,
-  error: null,
-}
-
-const itemsSlice = createSlice({
+const productsSlice = createSlice({
   name: 'items',
-  initialState,
+  initialState: {
+    item: [],
+  },
   reducers: {
-    fetchItems(state) {
-      return { ...state, loading: true }
-    },
-    fetchItemsOnSuccess(state, action) {
-      return { ...state, loading: false, items: action.payload }
-    },
-    fetchItemsError(state, action) {
-      return { ...state, error: action.payload }
+    ItemsReceived(store, action) {
+      store.item = action.payload?.products
     },
   },
 })
 
-export const { fetchItems, fetchItemsError, fetchItemsOnSuccess } =
-  itemsSlice.actions
-export default itemsSlice.reducer
+export const { ItemsReceived } = productsSlice.actions
+export default productsSlice.reducer
