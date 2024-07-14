@@ -9,7 +9,6 @@ import loader from 'src/assets/loader.svg'
 export default function ProductPage() {
   // const [id, setId] = useState<number>(0)
   const { data, isLoading } = useGetSingleProductQuery({ id: 3 })
-  console.log(data)
 
   return (
     <main className={styles.main}>
