@@ -5,11 +5,9 @@ import { useGetItemsQuery } from 'src/api/services/fetchItems'
 import { useState } from 'react'
 import { ItemCriteria } from 'src/types'
 
-
 export default function Products() {
   const [title, setTitle] = useState<string>('')
   const [limit, setLimit] = useState<number>(12)
-
 
   const { data } = useGetItemsQuery({
     title,
