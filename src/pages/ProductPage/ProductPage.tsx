@@ -1,14 +1,16 @@
 import styles from './ProductPage.module.css'
-import imgMini from '../../../public/photo.png'
 import { Rating } from 'react-simple-star-rating'
-// import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useGetSingleProductQuery } from 'src/api/services/fetchItems'
 import loader from 'src/assets/loader.svg'
 
 export default function ProductPage() {
   // const [id, setId] = useState<number>(0)
-  const { data, isLoading } = useGetSingleProductQuery({ id: 3 })
+  const { data, isLoading } = useGetSingleProductQuery({ id: 10 })
+  const [chosenImg, setChosenImg] = useState<string>('')
+
+  const choseImg = (value: string) => setChosenImg(value)
 
   return (
     <main className={styles.main}>
@@ -24,19 +26,38 @@ export default function ProductPage() {
       ) : (
         <section className={styles.wrapper}>
           <div className={styles.imgBox}>
-            <img
-              className={styles.mainImg}
-              alt="Изображение продукта"
-              src={data?.thumbnail}
-            />
-            <div className={styles.scrollImg}>
-              <img alt="Изображение продукта" src={imgMini} />
-              <img alt="Изображение продукта" src={imgMini} />
-              <img alt="Изображение продукта" src={imgMini} />
-              <img alt="Изображение продукта" src={imgMini} />
-              <img alt="Изображение продукта" src={imgMini} />
-              <img alt="Изображение продукта" src={imgMini} />
-            </div>
+            {data?.images.length === 1 ? (
+              <img
+                width={520}
+                height={520}
+                className={styles.mainImg}
+                alt="Изображение продукта"
+                src={chosenImg || data?.thumbnail}
+              />
+            ) : (
+              <>
+                <img
+                  width={520}
+                  height={520}
+                  className={styles.mainImg}
+                  alt="Изображение продукта"
+                  src={chosenImg || data?.thumbnail}
+                />{' '}
+                <div className={styles.scrollImg}>
+                  {data?.images.map((img: string) => {
+                    return (
+                      <img
+                        onClick={() => choseImg(img)}
+                        key={img}
+                        className={styles.smallImg}
+                        alt="Изображение продукта"
+                        src={img}
+                      />
+                    )
+                  })}
+                </div>
+              </>
+            )}
           </div>
           <div className={styles.contentBox}>
             <h1 className={styles.title}>{data?.title}</h1>
