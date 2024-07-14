@@ -14,6 +14,7 @@ type SingleItem = {
 }
 
 export type ItemCriteria = {
+  quantity: number
   id: number
   title: string
   thumbnail: string

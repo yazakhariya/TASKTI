@@ -3,10 +3,11 @@
   gap: 15px;
   padding: 12px;
   border-radius: 4px;
+  width: 100%;
 }
 
 .item:hover {
-  background: #F6F6F6;
+  background: #f6f6f6;
 }
 
 .container {
@@ -52,17 +53,27 @@
 .contentBox {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+}
+
+.buttonBox {
+  gap: 35px;
+  margin-left: auto;
+}
+
+.cartContentBox {
+  width: 100%;
 }
 
 .cartContentBox,
 .buttonBox {
   display: flex;
-  gap: 35px;
   align-items: center;
 }
 
 .textBox {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 5px;
 }

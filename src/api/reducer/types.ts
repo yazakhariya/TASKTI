@@ -9,6 +9,7 @@ export type ItemsState = {
 }
 
 type Products = {
+  length: number
   discountedTotal: string
   total: string
   totalProducts: number
@@ -16,6 +17,7 @@ type Products = {
 }
 
 type Item = {
+  quantity: number
   splice(arg0: number, arg1: number): import('react').ReactNode
   map(arg0: (item: Item) => import('react/jsx-runtime').JSX.Element): Item
   discountPercentage: string

@@ -9,6 +9,7 @@ type Props = {
   img: string
   name: string
   price: string
+  quantity: number
   pageType?: string
   width?: number
   height?: number
@@ -23,8 +24,10 @@ export default function UiItemCard({
   width,
   height,
   deleted,
+  quantity,
 }: Props) {
-  const [count, setCount] = useState<number>(0)
+  const [count, setCount] = useState<number>(quantity)
+
   const decrement = () => {
     if (count === 0) {
       setCount(0)
@@ -45,7 +48,13 @@ export default function UiItemCard({
           price={price}
         />
       ) : (
-        <div className={pageType === 'cart' ? `${styles.wrapper} + ${styles.item}` : undefined}>
+        <div
+          className={
+            pageType === 'cart'
+              ? `${styles.wrapper} + ${styles.item}`
+              : undefined
+          }
+        >
           <div className={styles.container}>
             <img
               className={styles.productImg}
@@ -68,13 +77,15 @@ export default function UiItemCard({
             }
           >
             <div className={styles.textBox}>
-              <span className={styles.itemName}>{name}</span>
+              <span className={styles.itemName}>
+                {name.length > 30 ? name.slice(0, 36) + '...' : name}
+              </span>
               <span className={styles.itemPrice}>{price}</span>
             </div>
             {/* пока не знаю, как избавиться от многоуровневого тернарника
             эта часть кода будет отрефакторена
          */}
-            {pageType === 'cart' ? (
+            {pageType === 'cart' || quantity > 0 ? (
               <>
                 <div className={styles.buttonBox}>
                   <button onClick={decrement} className={styles.button}>
@@ -89,8 +100,10 @@ export default function UiItemCard({
                   >
                     <img alt={'Кнопка добавления товара'} src={plus} />
                   </button>
+                  {pageType === 'cart' ? (
+                    <button className={styles.buttonDelete}>Delete</button>
+                  ) : null}
                 </div>
-                <button className={styles.buttonDelete}>Delete</button>
               </>
             ) : (
               <button type="button" className={styles.button}>

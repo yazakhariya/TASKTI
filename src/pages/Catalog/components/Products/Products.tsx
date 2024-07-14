@@ -5,9 +5,11 @@ import { useGetItemsQuery } from 'src/api/services/fetchItems'
 import { useState } from 'react'
 import { ItemCriteria } from 'src/types'
 
+
 export default function Products() {
   const [title, setTitle] = useState<string>('')
   const [limit, setLimit] = useState<number>(12)
+
 
   const { data } = useGetItemsQuery({
     title,
@@ -30,22 +32,30 @@ export default function Products() {
         />
         <div className={styles.productList}>
           {data ? (
-            data?.products.map((item: ItemCriteria) => {
-              return (
-                <UiItemCard
-                  key={item.id}
-                  img={item.thumbnail}
-                  name={item.title}
-                  price={(
-                    parseInt(item.price) -
-                    (parseInt(item.price) * parseInt(item.discountPercentage)) /
-                      100
-                  ).toFixed(2)}
-                  width={370}
-                  height={300}
-                />
-              )
-            })
+            <>
+              {data?.products.length === 0 ? (
+                <h2>No data found</h2>
+              ) : (
+                data?.products.map((item: ItemCriteria) => {
+                  return (
+                    <UiItemCard
+                      key={item.id}
+                      img={item.thumbnail}
+                      name={item.title}
+                      price={(
+                        parseInt(item.price) -
+                        (parseInt(item.price) *
+                          parseInt(item.discountPercentage)) /
+                          100
+                      ).toFixed(2)}
+                      width={370}
+                      height={300}
+                      quantity={0}
+                    />
+                  )
+                })
+              )}
+            </>
           ) : (
             <img
               alt="Идет загрузка контента"
