@@ -1,0 +1,152 @@
+.wrapper {
+  margin: 48px 130px 200px;
+  display: flex;
+}
+
+.mainImg {
+  width: 520px;
+  height: 520px;
+}
+
+.scrollImg {
+  display: flex;
+  gap: 20px;
+}
+
+.contentBox {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 56px;
+  color: #444b58;
+}
+
+.meta {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.metaSpan {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #646464;
+  margin-left: auto;
+}
+
+.stock {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #f14f4f;
+  border-width: 1px 0px;
+  border-style: solid;
+  border-color: #c4c4c4;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  height: 48px;
+  width: 100%;
+}
+
+.productInfo {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #444b58;
+}
+
+.other {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  gap: 7px;
+}
+
+.otherInfo {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #646464;
+}
+
+.buy {
+  margin-top: 5px;
+  padding: 12px;
+  border-radius: 6px;
+  background: #0000000a;
+  display: flex;
+  flex-direction: row;
+  min-width: 490px;
+}
+
+.priceBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 18px;
+  border-right: 2px solid #d5d5d5;
+}
+
+.priceAfter {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 40px;
+  color: #444b58;
+}
+
+.priceBefore {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #646464;
+  text-decoration-line: line-through;
+}
+
+.sale {
+  display: flex;
+  align-items: center;
+  padding: 0px 18px;
+}
+
+.saleText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #444b58;
+}
+
+.salePercent {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #444b58;
+  padding: 5px;
+}
+
+.button {
+  width: 176px;
+  height: 62px;
+  border: none;
+  padding: 20px 50px;
+  border-radius: 4px;
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@media (min-width: 320px) {
+  /* доделать */
+}

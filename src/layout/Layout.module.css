@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Jost', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.wrapper {
+  width: fit-content;
+}
+
+button {
+  background-color: #f14f4f;
+  cursor: pointer;
+  color: #ffffff;
+  border: none;
+}
+
+button:hover {
+  background-color: #8c2828;
+}
+
+button:disabled {
+  background-color: #f8afaf;
+}
+
+a:hover {
+  text-decoration-line: underline;
+  color: #c4c4c4;
+}

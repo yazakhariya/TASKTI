@@ -1,0 +1,37 @@
+.logo {
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.navigationWrapper {
+  background-color: #484283;
+  padding: 32px 138px 0px 130px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  width: 1180px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 23px;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-left: 680px;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  gap: 4px;
+}

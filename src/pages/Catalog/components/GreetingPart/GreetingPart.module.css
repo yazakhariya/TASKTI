@@ -1,0 +1,46 @@
+.wrapper {
+  background-color: #484283;
+  padding: 116px 130px 138px;
+  text-align: center;
+}
+
+.contentBox {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: left;
+  z-index: 1;
+}
+
+.behindText {
+  position: relative;
+  font-weight: 700;
+  font-size: 170px;
+  color: #ffffff1f;
+  z-index: auto;
+}
+
+.heading {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 50px;
+}
+
+.text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.button {
+  width: 207px;
+  height: 62px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 20px, 50px;
+}

@@ -1,0 +1,35 @@
+.wrapper {
+  background-color: #444b58;
+}
+
+.footerFixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 23px 130px;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
