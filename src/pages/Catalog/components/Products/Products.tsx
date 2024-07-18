@@ -4,17 +4,20 @@ import loader from 'src/assets/loader.svg'
 import { useGetItemsQuery } from 'src/api/services/fetchItems'
 import { useState } from 'react'
 import { ItemCriteria } from 'src/types'
+import { useSelector } from 'react-redux'
+import { Item, StoreDefine } from 'src/api/reducer/types'
 
 export default function Products() {
   const [title, setTitle] = useState<string>('')
   const [limit, setLimit] = useState<number>(12)
+  const itemsList = useSelector((store: StoreDefine) => store.items)
 
   const { data } = useGetItemsQuery({
     title,
-    limit,
+    limit
   })
 
-  const showMoreFn = () => {
+  function showMoreFn() {
     setLimit(limit + 12)
   }
 
@@ -34,24 +37,31 @@ export default function Products() {
               {data?.products.length === 0 ? (
                 <h2>No data found</h2>
               ) : (
-                data?.products.map((item: ItemCriteria) => {
-                  return (
-                    <UiItemCard
-                      key={item.id}
-                      img={item.thumbnail}
-                      name={item.title}
-                      price={(
-                        parseInt(item.price) -
-                        (parseInt(item.price) *
-                          parseInt(item.discountPercentage)) /
-                          100
-                      ).toFixed(2)}
-                      width={370}
-                      height={300}
-                      quantity={0}
-                    />
-                  )
-                })
+                data?.products
+                  .map((item: ItemCriteria) => {
+                    const x: Item[] = itemsList?.entities?.products?.filter(
+                      (a: ItemCriteria) => a.id === item.id
+                    )
+
+                    return (
+                      <UiItemCard
+                        key={item.id}
+                        id={item.id}
+                        img={item.thumbnail}
+                        name={item.title}
+                        price={(
+                          parseInt(item.price) -
+                          (parseInt(item.price) *
+                            parseInt(item.discountPercentage)) /
+                            100
+                        ).toFixed(2)}
+                        width={370}
+                        height={300}
+                        quantity={x.length > 0 ? x[0].quantity : 0}
+                      />
+                    )
+                  })
+                  .slice(0, limit)
               )}
             </>
           ) : (
@@ -65,7 +75,7 @@ export default function Products() {
         </div>
       </div>
       {limit < data?.total ? (
-        <button className={styles.button} onClick={() => showMoreFn()}>
+        <button className={styles.button} onClick={showMoreFn}>
           Show more
         </button>
       ) : null}

@@ -4,6 +4,7 @@ import minus from '../../../public/minus.svg'
 import plus from '../../../public/plus.svg'
 import styles from './UiItemCard.module.css'
 import DeletedItem from './deletedItem'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {
   img: string
@@ -14,6 +15,7 @@ type Props = {
   width?: number
   height?: number
   deleted?: boolean
+  id: number
 }
 
 export default function UiItemCard({
@@ -25,8 +27,10 @@ export default function UiItemCard({
   height,
   deleted,
   quantity,
+  id
 }: Props) {
   const [count, setCount] = useState<number>(quantity)
+  const navigate = useNavigate()
 
   const decrement = () => {
     if (count === 0) {
@@ -64,8 +68,8 @@ export default function UiItemCard({
               height={height}
             />
             {pageType === 'cart' ? null : (
-              <div className={styles.overlay}>
-                <div className={styles.text}>Show details</div>
+              <div onClick={() => navigate(`/product/${id}`)} className={styles.overlay}>
+                <div className={styles.text}>Show details</div>             
               </div>
             )}
           </div>
@@ -77,8 +81,8 @@ export default function UiItemCard({
             }
           >
             <div className={styles.textBox}>
-              <span className={styles.itemName}>
-                {name.length > 30 ? name.slice(0, 36) + '...' : name}
+              <span className={styles.itemName} onClick={() => navigate(`/product/${id}`)}>
+                {name.length > 18 ? name.slice(0, 17) + '...' : name}
               </span>
               <span className={styles.itemPrice}>{price}</span>
             </div>

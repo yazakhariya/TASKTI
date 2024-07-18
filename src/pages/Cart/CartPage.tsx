@@ -40,13 +40,12 @@ export default function CartPage() {
                             parseInt(item.price) -
                             (parseInt(item.price) *
                               parseInt(item.discountPercentage)) /
-                              100
+                            100
                           ).toFixed(2)}
                           quantity={item.quantity}
                           pageType="cart"
                           width={100}
-                          height={100}
-                        />
+                          height={100} id={item.id} />
                       )
                     })
                   : null}
