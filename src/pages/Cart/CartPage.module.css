@@ -73,6 +73,10 @@
   color: #b2b5bb;
 }
 
+.noMessage {
+  text-align: center;
+}
+
 .priceInfoAfter {
   font-weight: 700;
   color: #444b58;

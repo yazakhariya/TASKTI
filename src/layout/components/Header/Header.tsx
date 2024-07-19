@@ -17,7 +17,7 @@ type Props = {
 export default function Header({ userName }: Props) {
   const dispatch = useDispatch<AppDispatch>()
   useEffect(() => {
-    dispatch(fetchCartItems(1))
+    dispatch(fetchCartItems(15))
   }, [])
   const navigate = useNavigate()
   const { pathname } = useLocation()

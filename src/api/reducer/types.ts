@@ -4,11 +4,20 @@ export type StoreDefine = {
 
 export type ItemsState = {
   error: string | null | undefined
-  entities: Products
+  entities: Carts
   loadingStatus: string
 }
 
+type Carts = {
+  discountedTotal: number
+  totalProducts: number
+  products: Item[]
+  total: number
+  carts: Products[]
+}
+
 type Products = {
+  id: number
   map(arg0: (a: import("../../types").ItemCriteria) => boolean): Item
   length: number
   discountedTotal: string
