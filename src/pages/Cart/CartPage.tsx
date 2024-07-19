@@ -9,7 +9,7 @@ export default function CartPage() {
   const itemsList = useSelector((store: StoreDefine) => store.items)
 
   return (
-    <main className={styles.main}>
+    <main>
       <Helmet>
         <title>My cart | Goods4you</title>
         <meta

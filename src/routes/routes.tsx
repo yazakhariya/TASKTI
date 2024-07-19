@@ -5,6 +5,7 @@ import NotFound from 'src/pages/NotFound/NotFound'
 import ProductPage from 'src/pages/ProductPage/ProductPage'
 import { RouterPath } from './enums'
 import Layout from 'src/layout/Layout'
+import AuthPage from 'src/pages/AuthPage/AuthPage'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: RouterPath.Cart,
         element: <CartPage />,
+      },
+      {
+        path: RouterPath.SignIn,
+        element: <AuthPage />,
       },
     ],
   },

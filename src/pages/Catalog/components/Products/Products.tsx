@@ -14,7 +14,7 @@ export default function Products() {
 
   const { data } = useGetItemsQuery({
     title,
-    limit
+    limit,
   })
 
   function showMoreFn() {
@@ -24,7 +24,7 @@ export default function Products() {
   return (
     <section className={styles.wrapper}>
       <div className={styles.contentBox}>
-        <h1 className={styles.heading}>Catalog</h1>
+        <h2 className={styles.heading}>Catalog</h2>
         <input
           className={styles.input}
           value={title}
@@ -34,14 +34,17 @@ export default function Products() {
         <div className={styles.productList}>
           {data ? (
             <>
-              {data?.products.length === 0 ? (
+              {data?.products?.length === 0 ? (
                 <h2>No data found</h2>
               ) : (
                 data?.products
                   .map((item: ItemCriteria) => {
-                    const x: Item[] = itemsList?.entities?.products?.filter(
-                      (a: ItemCriteria) => a.id === item.id
-                    )
+                    let x
+                    if (data) {
+                      x = itemsList?.entities?.products?.filter(
+                        (a: ItemCriteria) => a.id === item.id
+                      )
+                    }
 
                     return (
                       <UiItemCard
@@ -57,7 +60,7 @@ export default function Products() {
                         ).toFixed(2)}
                         width={370}
                         height={300}
-                        quantity={x.length > 0 ? x[0].quantity : 0}
+                        quantity={x?.length > 0 ? x[0].quantity : 0}
                       />
                     )
                   })

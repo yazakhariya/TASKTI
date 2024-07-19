@@ -32,31 +32,33 @@ export default function Header({ userName }: Props) {
           alt="Логотип сайта"
           src={logo}
           onClick={
-            isLogoClickable ? () => navigate(RouterPath.Catalog) : undefined
+            isLogoClickable && pathname !== '/login' ? () => navigate(RouterPath.Catalog) : undefined
           }
         />
-        <nav className={styles.menu}>
-          <Link to={RouterPath.Catalog} className={styles.link}>
-            <span>Catalog</span>
-          </Link>
-          <Link to={RouterPath.FAQ} className={styles.link}>
-            <span>FAQ</span>
-          </Link>
-          <Link to={RouterPath.Cart} className={styles.link}>
-            <span>Cart</span>
-            <img
-              className={styles.cartImg}
-              alt="Переход по ссылке в корзину"
-              src={cart}
-            />
-            <div className={styles.counter}>
-              {counted.entities.totalProducts}
-            </div>
-          </Link>
-          <Link to={'*'} className={styles.link}>
-            <span>{userName}</span>
-          </Link>
-        </nav>
+        {pathname !== '/login' ? (
+          <nav className={styles.menu}>
+            <Link to={RouterPath.Catalog} className={styles.link}>
+              <span>Catalog</span>
+            </Link>
+            <Link to={RouterPath.FAQ} className={styles.link}>
+              <span>FAQ</span>
+            </Link>
+            <Link to={RouterPath.Cart} className={styles.link}>
+              <span>Cart</span>
+              <img
+                className={styles.cartImg}
+                alt="Переход по ссылке в корзину"
+                src={cart}
+              />
+              <div className={styles.counter}>
+                {counted.entities.totalProducts}
+              </div>
+            </Link>
+            <Link to={'*'} className={styles.link}>
+              <span>{userName}</span>
+            </Link>
+          </nav>
+        ) : null}
       </div>
     </header>
   )
