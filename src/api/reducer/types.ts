@@ -12,7 +12,7 @@ type Products = {
   map(arg0: (a: import("../../types").ItemCriteria) => boolean): Item
   length: number
   discountedTotal: string
-  total: string
+  total: number
   totalProducts: number
   products: Item[]
 }

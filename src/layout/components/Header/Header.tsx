@@ -17,7 +17,7 @@ type Props = {
 export default function Header({ userName }: Props) {
   const dispatch = useDispatch<AppDispatch>()
   useEffect(() => {
-    dispatch(fetchCartItems(33))
+    dispatch(fetchCartItems(1))
   }, [])
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -32,7 +32,9 @@ export default function Header({ userName }: Props) {
           alt="Логотип сайта"
           src={logo}
           onClick={
-            isLogoClickable && pathname !== '/login' ? () => navigate(RouterPath.Catalog) : undefined
+            isLogoClickable && pathname !== '/login'
+              ? () => navigate(RouterPath.Catalog)
+              : undefined
           }
         />
         {pathname !== '/login' ? (
@@ -50,9 +52,11 @@ export default function Header({ userName }: Props) {
                 alt="Переход по ссылке в корзину"
                 src={cart}
               />
-              <div className={styles.counter}>
-                {counted.entities.totalProducts}
-              </div>
+              {counted.entities.total !== 0 ? (
+                <div className={styles.counter}>
+                  {counted.entities.totalProducts}
+                </div>
+              ) : null}
             </Link>
             <Link to={'*'} className={styles.link}>
               <span>{userName}</span>

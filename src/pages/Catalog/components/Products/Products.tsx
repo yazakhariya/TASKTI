@@ -5,7 +5,7 @@ import { useGetItemsQuery } from 'src/api/services/fetchItems'
 import { useState } from 'react'
 import { ItemCriteria } from 'src/types'
 import { useSelector } from 'react-redux'
-import { Item, StoreDefine } from 'src/api/reducer/types'
+import { StoreDefine } from 'src/api/reducer/types'
 
 export default function Products() {
   const [title, setTitle] = useState<string>('')

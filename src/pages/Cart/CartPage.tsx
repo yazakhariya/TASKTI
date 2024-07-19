@@ -24,7 +24,7 @@ export default function CartPage() {
         <section className={styles.wrapper}>
           <h1 className={styles.heading}>My cart</h1>
           {itemsList.loadingStatus === 'failed' ||
-          itemsList?.entities.length === 0 ? (
+          itemsList?.entities.total === 0 ? (
             <h2 className={styles.noMessage}>No Items</h2>
           ) : (
             <div className={styles.contentBox}>

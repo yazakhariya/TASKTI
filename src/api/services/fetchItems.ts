@@ -10,6 +10,23 @@ export const itemsApi = createApi({
     getSingleProduct: builder.query({
       query: ({ id }) => `product/${id}`,
     }),
+    getRegisterUser: builder.mutation({
+      query: ({ username, password }) => ({
+        url: 'auth/login',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: {
+          username: username,
+          password: password,
+          expiresInMins: 30,
+        },
+      }),
+    }),
   }),
 })
-export const { useGetItemsQuery, useGetSingleProductQuery } = itemsApi
+
+export const {
+  useGetItemsQuery,
+  useGetSingleProductQuery,
+  useGetRegisterUserMutation,
+} = itemsApi
