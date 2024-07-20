@@ -16,8 +16,7 @@ export default function AuthPage() {
       await createUser({ username, password })
         .unwrap()
         .then((res) => localStorage.setItem('token', res.token))
-      setUsername('')
-      setPassword('')
+
       navigate('/')
     } catch (error) {
       console.log(`Error: ${error}`)

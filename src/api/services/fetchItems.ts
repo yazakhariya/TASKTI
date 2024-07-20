@@ -1,5 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+type CurrentUser = {
+  firstName: string
+  lastName: string
+  id: number
+}
+
 export const itemsApi = createApi({
   reducerPath: 'itemsApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
@@ -22,17 +28,15 @@ export const itemsApi = createApi({
         },
       }),
     }),
-    getCurrentUser: builder.query({
-      query: () => {
-        return {
-          url: 'auth/me',
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'application/json',
-          },
-        }
-      },
+    getCurrentUser: builder.query<CurrentUser, void>({
+      query: () => ({
+        url: 'auth/me',
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+      }),
     }),
   }),
 })

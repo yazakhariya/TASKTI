@@ -12,13 +12,14 @@ import { useDispatch } from 'react-redux'
 
 type Props = {
   userName: string
+  id: number
 }
 
-export default function Header({ userName }: Props) {
+export default function Header({ userName, id}: Props) {
   const dispatch = useDispatch<AppDispatch>()
   useEffect(() => {
-    dispatch(fetchCartItems(15))
-  }, [])
+    dispatch(fetchCartItems(id))
+  }, [id])
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const isLogoClickable = pathname !== RouterPath.Catalog
@@ -52,7 +53,7 @@ export default function Header({ userName }: Props) {
                 alt="Переход по ссылке в корзину"
                 src={cart}
               />
-              {counted.entities.total !== 0 ? (
+              {counted?.entities?.total !== 0 ? (
                 <div className={styles.counter}>
                   {counted.entities.totalProducts}
                 </div>

@@ -25,7 +25,7 @@ const productsSlice = createSlice({
       .addCase(fetchCartItems.fulfilled, (state, action) => {
         state.loadingStatus = 'fulfilled'
         state.error = null
-        state.entities = action.payload.carts[0]
+        state.entities = action.payload?.carts[0]
       })
   },
 })

@@ -4,8 +4,25 @@ export type StoreDefine = {
 
 export type ItemsState = {
   error: string | null | undefined
-  entities: Carts[]
+  entities: Carts
   loadingStatus: string
+}
+
+export type UserStoreDefine = {
+  auth: UserState
+}
+
+export type UserState = {
+  token: string
+  isAuthenticated: boolean
+  user: User
+}
+
+export type User = {
+  id: number
+  firstName: string
+  lastName: string
+  token: string
 }
 
 type Carts = {

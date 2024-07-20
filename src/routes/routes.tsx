@@ -8,8 +8,7 @@ import Layout from 'src/layout/Layout'
 import AuthPage from 'src/pages/AuthPage/AuthPage'
 
 function Router(): RouteObject[] {
-  const access = false
-
+  const token = localStorage.getItem('token')
   return [
     {
       path: RouterPath.Catalog,
@@ -17,15 +16,15 @@ function Router(): RouteObject[] {
       children: [
         {
           path: RouterPath.Catalog,
-          element: access ? (
-            <CatalogPage />
-          ) : (
+          element: !token ? (
             <Navigate to={RouterPath.SignIn} />
+          ) : (
+            <CatalogPage />
           ),
         },
         {
           path: RouterPath.ProductPage,
-          element: access ? (
+          element: token ? (
             <ProductPage />
           ) : (
             <Navigate to={RouterPath.SignIn} />
@@ -33,7 +32,11 @@ function Router(): RouteObject[] {
         },
         {
           path: RouterPath.Cart,
-          element: access ? <CartPage /> : <Navigate to={RouterPath.SignIn} />,
+          element: token ? (
+            <CartPage />
+          ) : (
+            <Navigate to={RouterPath.SignIn} />
+          ),
         },
         {
           path: RouterPath.SignIn,
