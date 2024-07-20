@@ -18,6 +18,7 @@ export default function AuthPage() {
         .then((res) => localStorage.setItem('token', res.token))
 
       navigate('/')
+      window.location.reload();
     } catch (error) {
       console.log(`Error: ${error}`)
     }
