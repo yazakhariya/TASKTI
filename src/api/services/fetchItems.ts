@@ -38,6 +38,22 @@ export const itemsApi = createApi({
         },
       }),
     }),
+    getUpdatedCart: builder.mutation({
+      query: ({ id, quantity }) => ({
+        url: `carts/${id}`,
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: {
+          merge: false,
+          products: [
+            {
+              id: id,
+              quantity: quantity,
+            },
+          ],
+        },
+      }),
+    }),
   }),
 })
 
