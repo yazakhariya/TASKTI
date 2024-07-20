@@ -7,7 +7,9 @@ import { RouterPath } from './enums'
 import Layout from 'src/layout/Layout'
 import AuthPage from 'src/pages/AuthPage/AuthPage'
 
-const router = (access = false): RouteObject[] => {
+function Router(): RouteObject[] {
+  const access = false
+
   return [
     {
       path: RouterPath.Catalog,
@@ -46,4 +48,4 @@ const router = (access = false): RouteObject[] => {
   ]
 }
 
-export default router
+export default Router

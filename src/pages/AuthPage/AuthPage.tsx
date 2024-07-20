@@ -13,8 +13,9 @@ export default function AuthPage() {
   const UserDataSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     try {
-      await createUser({ username, password }).unwrap()
-      console.log('User created successfully!')
+      await createUser({ username, password })
+        .unwrap()
+        .then((res) => localStorage.setItem('token', res.token))
       setUsername('')
       setPassword('')
       navigate('/')

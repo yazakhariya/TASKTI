@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 import { fetchCartItems } from '../services/fetchCartItems'
 import { ItemsState } from './types'
 
-const initialState = {
+const initialState: ItemsState = {
   entities: [],
   loadingStatus: 'idle',
   error: null,
-} satisfies ItemsState as ItemsState
+}
 
 const productsSlice = createSlice({
   name: 'cartItems',

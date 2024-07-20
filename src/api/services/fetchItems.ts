@@ -22,6 +22,18 @@ export const itemsApi = createApi({
         },
       }),
     }),
+    getCurrentUser: builder.query({
+      query: () => {
+        return {
+          url: 'auth/me',
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      },
+    }),
   }),
 })
 
@@ -29,4 +41,5 @@ export const {
   useGetItemsQuery,
   useGetSingleProductQuery,
   useGetRegisterUserMutation,
+  useGetCurrentUserQuery,
 } = itemsApi

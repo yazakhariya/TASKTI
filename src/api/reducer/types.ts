@@ -4,7 +4,7 @@ export type StoreDefine = {
 
 export type ItemsState = {
   error: string | null | undefined
-  entities: Carts
+  entities: Carts[]
   loadingStatus: string
 }
 
