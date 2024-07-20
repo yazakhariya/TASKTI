@@ -5,6 +5,7 @@ import plus from '../../../public/plus.svg'
 import styles from './UiItemCard.module.css'
 import DeletedItem from './deletedItem'
 import { useNavigate } from 'react-router-dom'
+import { useGetUpdatedCartMutation } from 'src/api/services/fetchItems'
 
 type Props = {
   img: string
@@ -27,10 +28,19 @@ export default function UiItemCard({
   height,
   deleted,
   quantity,
-  id
+  id,
 }: Props) {
   const [count, setCount] = useState<number>(quantity)
   const navigate = useNavigate()
+  const [itemId, setItemId] = useState<number>(15)
+  const [itemQuantity, setItemQuantity] = useState<number>(1)
+  const [getUpdate] = useGetUpdatedCartMutation()
+
+  const handleUpdate = async () => {
+    await getUpdate({ itemId, itemQuantity })
+      .unwrap()
+      .then((res) => console.log(res))
+  }
 
   const decrement = () => {
     if (count === 0) {
@@ -68,8 +78,11 @@ export default function UiItemCard({
               height={height}
             />
             {pageType === 'cart' ? null : (
-              <div onClick={() => navigate(`/product/${id}`)} className={styles.overlay}>
-                <div className={styles.text}>Show details</div>             
+              <div
+                onClick={() => navigate(`/product/${id}`)}
+                className={styles.overlay}
+              >
+                <div className={styles.text}>Show details</div>
               </div>
             )}
           </div>
@@ -81,7 +94,10 @@ export default function UiItemCard({
             }
           >
             <div className={styles.textBox}>
-              <span className={styles.itemName} onClick={() => navigate(`/product/${id}`)}>
+              <span
+                className={styles.itemName}
+                onClick={() => navigate(`/product/${id}`)}
+              >
                 {name.length > 18 ? name.slice(0, 17) + '...' : name}
               </span>
               <span className={styles.itemPrice}>{price}</span>
@@ -105,7 +121,12 @@ export default function UiItemCard({
                     <img alt={'Кнопка добавления товара'} src={plus} />
                   </button>
                   {pageType === 'cart' ? (
-                    <button className={styles.buttonDelete}>Delete</button>
+                    <button
+                      onClick={() => handleUpdate()}
+                      className={styles.buttonDelete}
+                    >
+                      Delete
+                    </button>
                   ) : null}
                 </div>
               </>

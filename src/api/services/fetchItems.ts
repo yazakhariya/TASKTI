@@ -4,6 +4,7 @@ type CurrentUser = {
   firstName: string
   lastName: string
   id: number
+  message: string
 }
 
 export const itemsApi = createApi({
@@ -39,16 +40,16 @@ export const itemsApi = createApi({
       }),
     }),
     getUpdatedCart: builder.mutation({
-      query: ({ id, quantity }) => ({
-        url: `carts/${id}`,
+      query: ({ itemId, itemQuantity }) => ({
+        url: `carts/${itemId}`,
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: {
           merge: false,
           products: [
             {
-              id: id,
-              quantity: quantity,
+              id: itemId,
+              quantity: itemQuantity,
             },
           ],
         },
@@ -62,4 +63,5 @@ export const {
   useGetSingleProductQuery,
   useGetRegisterUserMutation,
   useGetCurrentUserQuery,
+  useGetUpdatedCartMutation
 } = itemsApi

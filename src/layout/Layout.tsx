@@ -6,10 +6,17 @@ import { useGetCurrentUserQuery } from 'src/api/services/fetchItems'
 
 export default function Layout() {
   const { data } = useGetCurrentUserQuery()
+  
+  if (data?.message === 'Invalid/Expired Token!') {
+    localStorage.removeItem('token')
+  }
 
   return (
     <div className={styles.wrapper}>
-      <Header userName={`${data?.firstName} ${data?.lastName}`} id={Number(data?.id)} />
+      <Header
+        userName={`${data?.firstName} ${data?.lastName}`}
+        id={Number(data?.id)}
+      />
       <Outlet />
       <Footer />
     </div>
