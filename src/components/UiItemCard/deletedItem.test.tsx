@@ -7,5 +7,10 @@ describe('deleted card item', () => {
     render(<DeletedItem img={''} name={''} price={''} />)
     expect(screen.getByTestId('my-test-id')).toBeDefined()
   })
+
+  it('should match snapshot', () => {
+    render(<DeletedItem img={''} name={''} price={''} />)
+    expect(screen.getByTestId('my-test-id')).toMatchSnapshot()
+  })
 })
 

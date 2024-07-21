@@ -5,4 +5,8 @@ describe('counting function', () => {
   it('should render properly', () => {
     expect(decrement).not.toBeNaN()
   })
+
+  it('should render properly', () => {
+    expect(decrement).not.toBeNull()
+  })
 })

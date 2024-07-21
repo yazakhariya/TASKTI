@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NotFound > should match snapshot 1`] = `
+<h2
+  data-testid="my-test-id"
+>
+  Cтраница не найдена...
+</h2>
+`;

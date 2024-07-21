@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`deleted card item > should match snapshot 1`] = `
+<div
+  class="_wrapper_8fd2df _item_8fd2df"
+  data-testid="my-test-id"
+>
+  <img
+    alt="Изображение товара "
+    class="_productImg_8fd2df _deleted_8fd2df"
+    src=""
+  />
+  <div
+    class="_cartContentBox_8fd2df _deletedItem_8fd2df"
+  >
+    <div
+      class="_textBox_8fd2df _deleted_8fd2df"
+    >
+      <span
+        class="_itemName_8fd2df"
+      />
+      <span
+        class="_itemPrice_8fd2df"
+      />
+    </div>
+    <button
+      class="_button_8fd2df _deletedButtonState_8fd2df"
+      type="button"
+    >
+      <img
+        alt="Кнопка добавления продукта в корзину"
+        src="/@fs/C:/Users/%D0%AF%D0%BD%D0%B0/Desktop/t1/TASKTI/public/addtocart.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`deleted card item > should render properly 1`] = `
+<div
+  class="_wrapper_8fd2df _item_8fd2df"
+  data-testid="my-test-id"
+>
+  <img
+    alt="Изображение товара "
+    class="_productImg_8fd2df _deleted_8fd2df"
+    src=""
+  />
+  <div
+    class="_cartContentBox_8fd2df _deletedItem_8fd2df"
+  >
+    <div
+      class="_textBox_8fd2df _deleted_8fd2df"
+    >
+      <span
+        class="_itemName_8fd2df"
+      />
+      <span
+        class="_itemPrice_8fd2df"
+      />
+    </div>
+    <button
+      class="_button_8fd2df _deletedButtonState_8fd2df"
+      type="button"
+    >
+      <img
+        alt="Кнопка добавления продукта в корзину"
+        src="/@fs/C:/Users/%D0%AF%D0%BD%D0%B0/Desktop/t1/TASKTI/public/addtocart.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
