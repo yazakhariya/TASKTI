@@ -15,7 +15,7 @@ type Props = {
   id: number
 }
 
-export default function Header({ userName, id}: Props) {
+export default function Header({ userName, id }: Props) {
   const dispatch = useDispatch<AppDispatch>()
   useEffect(() => {
     dispatch(fetchCartItems(id))
@@ -54,9 +54,7 @@ export default function Header({ userName, id}: Props) {
                 src={cart}
               />
               {counted?.entities?.total !== 0 ? (
-                <div className={styles.counter}>
-                  {counted.entities.totalProducts}
-                </div>
+                <div className={styles.counter}>{counted.quantity}</div>
               ) : null}
             </Link>
             <Link to={'*'} className={styles.link}>

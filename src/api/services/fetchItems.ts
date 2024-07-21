@@ -40,16 +40,16 @@ export const itemsApi = createApi({
       }),
     }),
     getUpdatedCart: builder.mutation({
-      query: ({ itemId, itemQuantity }) => ({
-        url: `carts/${itemId}`,
+      query: ({ id, quantity }) => ({
+        url: 'carts/15',
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: {
           merge: false,
           products: [
             {
-              id: itemId,
-              quantity: itemQuantity,
+              id: id,
+              quantity: quantity,
             },
           ],
         },

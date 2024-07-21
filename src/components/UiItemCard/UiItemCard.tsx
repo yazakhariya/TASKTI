@@ -27,20 +27,33 @@ export default function UiItemCard({
   pageType,
   width,
   height,
-  deleted,
   quantity,
   id,
 }: Props) {
   const [count, setCount] = useState<number>(quantity)
+  const [deleted, setDeleted] = useState<boolean>(false)
   const navigate = useNavigate()
-  const [itemId, setItemId] = useState<number>(15)
-  const [itemQuantity, setItemQuantity] = useState<number>(1)
   const [getUpdate] = useGetUpdatedCartMutation()
 
   const handleUpdate = async () => {
-    await getUpdate({ itemId, itemQuantity })
+    await getUpdate({ id, quantity })
+      .unwrap()
+      .then((res) => sessionStorage.setItem('res', res.totalQuantity))
+
+    if (pageType === 'cart') {
+      setDeleted(true)
+    }
+  }
+
+  const handleAddItems = async () => {
+    await getUpdate({ id, quantity })
       .unwrap()
       .then((res) => console.log(res))
+  }
+
+  const increment = () => {
+    setCount(count + 1)
+    handleAddItems()
   }
 
   return (
@@ -97,19 +110,19 @@ export default function UiItemCard({
             {/* пока не знаю, как избавиться от многоуровневого тернарника
             эта часть кода будет отрефакторена
          */}
-            {pageType === 'cart' || quantity > 0 ? (
+            {pageType === 'cart' || quantity > 0 || count > 0 ? (
               <>
                 <div className={styles.buttonBox}>
-                  <button onClick={() => decrement(setCount, count)} className={styles.button}>
+                  <button
+                    onClick={() => decrement(setCount, count, handleUpdate)}
+                    className={styles.button}
+                  >
                     <img alt={'Кнопка убывания товара'} src={minus} />
                   </button>
                   <span className={styles.itemAmount}>
                     {count} {count > 1 ? 'Items' : 'Item'}
                   </span>
-                  <button
-                    onClick={() => setCount(count + 1)}
-                    className={styles.button}
-                  >
+                  <button onClick={() => increment()} className={styles.button}>
                     <img alt={'Кнопка добавления товара'} src={plus} />
                   </button>
                   {pageType === 'cart' ? (
@@ -123,7 +136,11 @@ export default function UiItemCard({
                 </div>
               </>
             ) : (
-              <button type="button" className={styles.button}>
+              <button
+                type="button"
+                onClick={() => increment()}
+                className={styles.button}
+              >
                 <img
                   alt="Кнопка добавления продукта в корзину"
                   src={addButton}

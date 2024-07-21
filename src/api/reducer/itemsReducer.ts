@@ -6,6 +6,7 @@ const initialState: ItemsState = {
   entities: [],
   loadingStatus: 'idle',
   error: null,
+  quantity: null
 }
 
 const productsSlice = createSlice({
@@ -26,6 +27,7 @@ const productsSlice = createSlice({
         state.loadingStatus = 'fulfilled'
         state.error = null
         state.entities = action.payload?.carts[0]
+        state.quantity = action.payload?.carts[0]?.totalQuantity
       })
   },
 })

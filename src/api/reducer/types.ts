@@ -6,6 +6,7 @@ export type ItemsState = {
   error: string | null | undefined
   entities: Carts
   loadingStatus: string
+  quantity: null | number
 }
 
 export type UserStoreDefine = {
@@ -13,9 +14,8 @@ export type UserStoreDefine = {
 }
 
 export type UserState = {
-  token: string
   isAuthenticated: boolean
-  user: User
+  user: User[]
 }
 
 export type User = {
@@ -26,6 +26,7 @@ export type User = {
 }
 
 type Carts = {
+  totalQuantity: number
   discountedTotal: number
   totalProducts: number
   products: Item[]
