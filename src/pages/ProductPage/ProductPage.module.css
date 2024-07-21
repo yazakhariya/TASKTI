@@ -135,9 +135,19 @@
   padding: 5px;
 }
 
+.smallImg {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;
+}
+
+.smallImg:hover {
+  outline: 3px solid #c4c4c4;
+}
+
 .button {
-  width: 176px;
-  height: 62px;
   border: none;
   padding: 20px 50px;
   border-radius: 4px;

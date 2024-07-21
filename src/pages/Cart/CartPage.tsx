@@ -1,10 +1,13 @@
 import UiItemCard from 'src/components/UiItemCard/UiItemCard'
 import styles from './CartPage.module.css'
-import { mockData } from 'src/mockData/mockData'
-import productImg from '../../../public/photo.png'
 import { Helmet } from 'react-helmet-async'
+import { useSelector } from 'react-redux'
+import { StoreDefine } from 'src/api/reducer/types'
+import loader from 'src/assets/loader.svg'
 
 export default function CartPage() {
+  const itemsList = useSelector((store: StoreDefine) => store.items)
+
   return (
     <main className={styles.main}>
       <Helmet>
@@ -12,57 +15,70 @@ export default function CartPage() {
         <meta
           name="description"
           content="Beginner friendly page for learning React Helmet."
-        /></Helmet>
-      <section className={styles.wrapper}>
-        <h1 className={styles.heading}>My cart</h1>
-        <div className={styles.contentBox}>
-          <div className={styles.products}>
-            {mockData
-              ? mockData
-                  .map((item) => {
-                    return (
-                      <UiItemCard
-                        img={productImg}
-                        name={item.itemName}
-                        price={item.itemPrice}
-                        pageType="cart"
-                        width={100}
-                        height={100}
-                      />
-                    )
-                  })
-                  .splice(0, 3)
-              : null}
-            <UiItemCard
-              img={productImg}
-              name={mockData[4].itemName}
-              price={mockData[4].itemPrice}
-              pageType="cart"
-              width={100}
-              height={100}
-              deleted={true}
-            />
-          </div>
-          <div className={styles.commonPrice}>
-            <div className={styles.priceBox}>
-              <div className={styles.priceInfo}>
-                <span className={styles.total}>Total count</span>
-                <span className={styles.amount}>3 items</span>
+        />
+      </Helmet>
+      {itemsList.loadingStatus === 'loading' ||
+      itemsList.loadingStatus === 'failed' ? (
+        <img alt="Идет загрузка контента" width={40} height={40} src={loader} />
+      ) : (
+        <section className={styles.wrapper}>
+          <h1 className={styles.heading}>My cart</h1>
+          {itemsList.loadingStatus === 'failed' ||
+          itemsList?.entities.length === 0 ? (
+            <h2 className={styles.noMessage}>No Items</h2>
+          ) : (
+            <div className={styles.contentBox}>
+              <div className={styles.products}>
+                {itemsList
+                  ? itemsList.entities.products?.map((item) => {
+                      return (
+                        <UiItemCard
+                          key={item.id}
+                          img={item.thumbnail}
+                          name={item.title}
+                          price={(
+                            parseInt(item.price) -
+                            (parseInt(item.price) *
+                              parseInt(item.discountPercentage)) /
+                              100
+                          ).toFixed(2)}
+                          quantity={item.quantity}
+                          pageType="cart"
+                          width={100}
+                          height={100}
+                        />
+                      )
+                    })
+                  : null}
               </div>
-              <div className={styles.priceInfo}>
-                <span className={styles.priceBefore}>
-                  Price without discount
-                </span>
-                <span className={styles.priceInfoBefore}>700$</span>
+              <div className={styles.commonPrice}>
+                <div className={styles.priceBox}>
+                  <div className={styles.priceInfo}>
+                    <span className={styles.total}>Total count</span>
+                    <span className={styles.amount}>
+                      {itemsList.entities.totalProducts} items
+                    </span>
+                  </div>
+                  <div className={styles.priceInfo}>
+                    <span className={styles.priceBefore}>
+                      Price without discount
+                    </span>
+                    <span className={styles.priceInfoBefore}>
+                      {itemsList.entities.total}$
+                    </span>
+                  </div>
+                </div>
+                <div className={styles.priceInfo}>
+                  <span className={styles.priceAfter}>Total price</span>
+                  <span className={styles.priceInfoAfter}>
+                    {itemsList.entities.discountedTotal}$
+                  </span>
+                </div>
               </div>
             </div>
-            <div className={styles.priceInfo}>
-              <span className={styles.priceAfter}>Total price</span>
-              <span className={styles.priceInfoAfter}>590$</span>
-            </div>
-          </div>
-        </div>
-      </section>
+          )}
+        </section>
+      )}
     </main>
   )
 }

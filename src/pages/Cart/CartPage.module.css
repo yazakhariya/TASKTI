@@ -33,7 +33,7 @@
 
 .priceBox {
   padding-bottom: 12px;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .priceInfo {
@@ -65,7 +65,8 @@
 }
 
 .priceAfter,
-.priceInfoAfter {
+.priceInfoAfter,
+.noMessage {
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;

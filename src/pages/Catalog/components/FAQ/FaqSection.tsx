@@ -22,7 +22,7 @@ export default function FaqSection() {
             <h3 className={styles.heading}>FAQ</h3>
             {faqs.map((faq) => {
               return (
-                <dl className={styles.textBox}>
+                <dl key={faq.id} className={styles.textBox}>
                   <dt className={styles.question}>
                     <span>{faq.question}</span>
                     <img
