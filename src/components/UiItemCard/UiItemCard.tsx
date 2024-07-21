@@ -6,6 +6,7 @@ import styles from './UiItemCard.module.css'
 import DeletedItem from './deletedItem'
 import { useNavigate } from 'react-router-dom'
 import { useGetUpdatedCartMutation } from 'src/api/services/fetchItems'
+import { decrement } from './countFn'
 
 type Props = {
   img: string
@@ -40,15 +41,6 @@ export default function UiItemCard({
     await getUpdate({ itemId, itemQuantity })
       .unwrap()
       .then((res) => console.log(res))
-  }
-
-  const decrement = () => {
-    if (count === 0) {
-      setCount(0)
-    } else {
-      setCount(count - 1)
-    }
-    return count
   }
 
   return (
@@ -108,7 +100,7 @@ export default function UiItemCard({
             {pageType === 'cart' || quantity > 0 ? (
               <>
                 <div className={styles.buttonBox}>
-                  <button onClick={decrement} className={styles.button}>
+                  <button onClick={() => decrement(setCount, count)} className={styles.button}>
                     <img alt={'Кнопка убывания товара'} src={minus} />
                   </button>
                   <span className={styles.itemAmount}>
