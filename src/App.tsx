@@ -1,13 +1,11 @@
-import { RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import router from 'src/routes/routes'
 import { HelmetProvider } from 'react-helmet-async'
 
-function App() {
+export default function App() { 
   return (
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={createBrowserRouter(router())} />
     </HelmetProvider>
   )
 }
-
-export default App

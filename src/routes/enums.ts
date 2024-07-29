@@ -4,4 +4,5 @@ export enum RouterPath {
   ProductPage = '/product/:id',
   Cart = '/cart',
   NotFound = '*',
+  SignIn = '/login'
 }

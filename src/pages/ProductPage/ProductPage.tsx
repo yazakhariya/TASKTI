@@ -1,13 +1,14 @@
 import styles from './ProductPage.module.css'
 import { Rating } from 'react-simple-star-rating'
-import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useGetSingleProductQuery } from 'src/api/services/fetchItems'
 import loader from 'src/assets/loader.svg'
+import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function ProductPage() {
-  // const [id, setId] = useState<number>(0)
-  const { data, isLoading } = useGetSingleProductQuery({ id: 10 })
+  const { id } = useParams()
+  const { data, isLoading } = useGetSingleProductQuery({ id })
   const [chosenImg, setChosenImg] = useState<string>('')
 
   const choseImg = (value: string) => setChosenImg(value)

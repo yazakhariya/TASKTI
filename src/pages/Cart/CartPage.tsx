@@ -9,7 +9,7 @@ export default function CartPage() {
   const itemsList = useSelector((store: StoreDefine) => store.items)
 
   return (
-    <main className={styles.main}>
+    <main>
       <Helmet>
         <title>My cart | Goods4you</title>
         <meta
@@ -24,7 +24,7 @@ export default function CartPage() {
         <section className={styles.wrapper}>
           <h1 className={styles.heading}>My cart</h1>
           {itemsList.loadingStatus === 'failed' ||
-          itemsList?.entities.length === 0 ? (
+          itemsList?.entities.total === 0 ? (
             <h2 className={styles.noMessage}>No Items</h2>
           ) : (
             <div className={styles.contentBox}>
@@ -40,13 +40,12 @@ export default function CartPage() {
                             parseInt(item.price) -
                             (parseInt(item.price) *
                               parseInt(item.discountPercentage)) /
-                              100
+                            100
                           ).toFixed(2)}
                           quantity={item.quantity}
                           pageType="cart"
                           width={100}
-                          height={100}
-                        />
+                          height={100} id={item.id} />
                       )
                     })
                   : null}
